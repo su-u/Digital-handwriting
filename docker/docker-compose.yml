@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    tty: true
+    build: go
+    volumes:
+      - ../api:/go/app:z
+    ports:
+      - "9000"
+    command: bash -c "realize start --server"
+  proxy:
+    build: proxy
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf:z
+      - ./proxy/log:/var/log/nginx:z
+    ports:
+      - "80:80"
+    depends_on:
+      - 'api'
+      - 'web'

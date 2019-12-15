@@ -5,16 +5,16 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
     output: {
-        path: `${__dirname}/dist`,
+        path: `${__dirname}/front/dist`,
         filename: 'bundle.js?[hash]',
     },
-    entry: path.resolve(__dirname, './src/index.tsx'),
+    entry: path.resolve(__dirname, './front/src/index.tsx'),
     module: {
         rules: [
             {
                 test: /\.tsx$/,
-                use: ['thread-loader', 'cache-loader'],
-                include: path.resolve('src'),
+                use: ['thread-loader', 'cache-loader', 'babel-loader'],
+                include: path.resolve('./front/src'),
                 exclude: /node_modules/,
             },
             {
@@ -22,20 +22,6 @@ module.exports = {
                 use:[
                     {loader: 'html-loader'}
                 ],
-            },
-            {
-                test: /\.svg$/,
-                use: [
-                    {
-                        loader: "babel-loader"
-                    },
-                    {
-                        loader: "react-svg-loader",
-                        options: {
-                            jsx: true
-                        }
-                    }
-                ]
             }
         ]
     },

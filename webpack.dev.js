@@ -35,9 +35,11 @@ module.exports = merge(common, {
     },
     devServer: {
         port: 3000,
-        contentBase: 'front/dist',
+        contentBase: './front/dist',
         watchContentBase: true,
         hot: true,
+        inline: true,
+        host: '0.0.0.0'
     },
     plugins: [
         new CleanWebpackPlugin(),

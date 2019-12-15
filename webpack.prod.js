@@ -19,8 +19,7 @@ module.exports = merge(common, {
                         transpileOnly: true,
                         happyPackMode: true
                     }
-                },
-                exclude: /node_modules/,
+                }
             },
             {
                 test: /\.tsx$/,
@@ -34,6 +33,7 @@ module.exports = merge(common, {
                         }
                     }
                 ],
+                exclude: /node_modules/,
             },
         ]
     },
