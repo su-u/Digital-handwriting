@@ -1,0 +1,47 @@
+{
+  "include": [
+    "./front/src/*",
+    "./front/__tests__/*"
+  ],
+  "compilerOptions": {
+    "outDir": "./front/dist",
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "target": "es2015",
+    "module": "es2015",
+    "lib": [
+      "es2019",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "paths": {
+      "@/*": ["front/src/*"]
+    },
+    "incremental": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "./front/src/**/*.spec.ts",
+    "./front/src/**/*.spec.tsx",
+    "./front/src/**/*.test.ts",
+    "./front/src/**/*.test.tsx"
+  ]
+}
