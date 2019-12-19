@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 const App = () => {
     return(
         <>
-            <Button inlineText={'textaa'} />
+            <Button.Red inlineText={'textaa'} />
         </>
     );
 };

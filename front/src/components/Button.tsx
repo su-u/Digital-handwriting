@@ -5,19 +5,16 @@ interface Props {
     inlineText: string;
 }
 
-const Button: React.FC<Props> = (props: Props) => {
-    const { inlineText } = props;
-    return (
-        <ButtonStyle>
-            {inlineText}
-        </ButtonStyle>
-    );
-};
+const Button = {
+    Red: (props: Props) => {
+        const { inlineText } = props;
+        return <RedButton>{inlineText}</RedButton>
+    }
+}
 
 const ButtonStyle = styled.div`
-    border: 2px solid green;
+    border: 2px solid;
     border-radius: 5px;
-    background-color: green;
     padding: 20px;
     text-align: center;
     line-height: 30px;
@@ -30,9 +27,18 @@ const ButtonStyle = styled.div`
     font-weight: bold;
     font-size: 27px;
     &:hover {
-        background-color: #084c08;
-        border: 1px solid #084c08;
+        border: 1px solid;
     }
 `;
+
+const RedButton = styled(ButtonStyle)`
+    background-color: red;
+    border-color: red;
+    &:hover {
+        border-color: red;
+    }
+`;
+
+
 
 export default Button;
