@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from "@/components/Button";
 
 const App = () => {
     return(
         <>
-            app
+            <Button inlineText={'textaa'} />
         </>
     );
 };
