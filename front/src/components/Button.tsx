@@ -8,37 +8,33 @@ interface Props {
 const Button = {
     Red: (props: Props) => {
         const { inlineText } = props;
-        return <RedButton>{inlineText}</RedButton>
-    }
-}
+        return <ButtonStyle color={'red'} hoverColor={'#c50000'}>{inlineText}</ButtonStyle>
+    },
+    Black: (props: Props) => {
+        const { inlineText } = props;
+        return <ButtonStyle color={'black'} hoverColor={'Black'}>{inlineText}</ButtonStyle>
+    },
+};
 
-const ButtonStyle = styled.div`
-    border: 2px solid;
+const ButtonStyle = styled.div<{color: string, hoverColor: string}>`
+    border: 2px solid ${props => props.color};
     border-radius: 5px;
     padding: 20px;
     text-align: center;
-    line-height: 30px;
+    line-height: 20px;
     color: white;
-    width: 150px;
-    height: 30px;
+    width: 120px;
+    height: 20px;
     cursor: pointer;
-    top: calc(50% - 30px / 2);
-    left: calc(50% - 150px / 2);
+    left: calc(50% - 120px / 2);
+    top: calc(50% - 20px / 2);
     font-weight: bold;
     font-size: 27px;
+    background-color: ${props => props.color};
     &:hover {
-        border: 1px solid;
+      background-color: ${props => props.hoverColor};
+      border-color: ${props => props.hoverColor};
     }
 `;
-
-const RedButton = styled(ButtonStyle)`
-    background-color: red;
-    border-color: red;
-    &:hover {
-        border-color: red;
-    }
-`;
-
-
 
 export default Button;

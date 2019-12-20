@@ -10,9 +10,6 @@ module.exports = merge(common, {
     //     sourceMapFilename: 'bundle.js.map',
     // },
     devtool: 'inline-source-map',
-    watchOptions: {
-        poll: 500
-    },
     module: {
         rules: [
             {
