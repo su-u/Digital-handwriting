@@ -18,7 +18,7 @@ const Button = {
 
 const ButtonStyle = styled.div<{color: string, hoverColor: string}>`
     border: 2px solid ${props => props.color};
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 20px;
     text-align: center;
     line-height: 20px;
