@@ -1,8 +1,10 @@
-import React from "react";
-import { Switch, Route, HashRouter } from "react-router-dom";
-import GlobalStyle from "@/components/GlobalStyle";
+import React from 'react';
+import { Switch, Route, HashRouter } from 'react-router-dom';
+import GlobalStyle from '@/components/GlobalStyle';
 import App from "@/container/App";
-import HeaderComponent from "@/components/Header";
+import Score from '@/container/Score';
+import HeaderComponent from '@/components/Header';
+
 
 export default () => (
     <>
@@ -10,7 +12,8 @@ export default () => (
         <HashRouter>
             <HeaderComponent />
             <Switch>
-                <Route exact path={"/"} component={App} />
+                <Route exact path={'/'} component={App} />
+                <Route path={'/score'} componebt={Score} />
             </Switch>
         </HashRouter>
     </>
