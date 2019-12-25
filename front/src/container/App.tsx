@@ -1,12 +1,12 @@
 import React from 'react';
-import Button from "../components/Button";
+import Button from '../components/Button';
 
 const App = () => {
-    return(
-        <>
-            <Button.Red inlineText={'textaa'} />
-        </>
-    );
+	return (
+		<>
+			<Button.Red inlineText={'textaa'} />
+		</>
+	);
 };
 
-export default  App;
+export default App;
