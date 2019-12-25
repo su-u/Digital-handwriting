@@ -30,9 +30,8 @@ const Title = styled.div`
     font-size: 30px;
     > a {
         display: inline-flex;
-        > img {
-            height: 40px;
-        }
+        text-decoration: none;
+        color: white;
     }
 `;
 
