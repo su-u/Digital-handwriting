@@ -15,11 +15,11 @@ module.exports = merge(common, {
                 use: {
                     loader: 'ts-loader',
                     options: {
-                        configFile: "tsconfig.prod.json",
+                        configFile: 'tsconfig.prod.json',
                         transpileOnly: true,
-                        happyPackMode: true
-                    }
-                }
+                        happyPackMode: true,
+                    },
+                },
             },
             {
                 test: /\.tsx$/,
@@ -27,22 +27,16 @@ module.exports = merge(common, {
                     {
                         loader: 'babel-loader',
                         options: {
-                            plugins: [
-                                ["react-remove-properties", {"properties": ["data-test"]}]
-                            ]
-                        }
-                    }
+                            plugins: [['react-remove-properties', { properties: ['data-test'] }]],
+                        },
+                    },
                 ],
                 exclude: /node_modules/,
             },
-        ]
+        ],
     },
     resolve: {
-        plugins: [
-            new TsconfigPathsPlugin({ configFile:'tsconfig.prod.json' }),
-        ]
+        plugins: [new TsconfigPathsPlugin({ configFile: 'tsconfig.prod.json' })],
     },
-    plugins: [
-        new webpack.optimize.AggressiveMergingPlugin(),
-    ]
+    plugins: [new webpack.optimize.AggressiveMergingPlugin()],
 });

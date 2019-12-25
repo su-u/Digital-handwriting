@@ -17,18 +17,19 @@ module.exports = merge(common, {
                 use: {
                     loader: 'ts-loader',
                     options: {
-                        configFile: "tsconfig.dev.json",
+                        configFile: 'tsconfig.dev.json',
                         transpileOnly: true,
-                        happyPackMode: true
-                    }
-                }
+                        happyPackMode: true,
+                    },
+                },
             },
-        ]
+        ],
     },
     resolve: {
-        plugins: [
-            new TsconfigPathsPlugin({ configFile: 'tsconfig.dev.json' }),
-        ]
+        plugins: [new TsconfigPathsPlugin({ configFile: 'tsconfig.dev.json' })],
+    },
+    watchOptions: {
+        poll: 500,
     },
     devServer: {
         port: 3000,
@@ -36,10 +37,7 @@ module.exports = merge(common, {
         watchContentBase: true,
         hot: true,
         inline: true,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    plugins: [new CleanWebpackPlugin(), new webpack.HotModuleReplacementPlugin()],
 });

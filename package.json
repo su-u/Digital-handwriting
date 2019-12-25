@@ -84,7 +84,7 @@
     "tslint-fix": "tslint --fix --project tsconfig.json",
     "tslint:prettier-check": "tslint-config-prettier-check ./tslint.json",
     "tslint": "tslint --fix --force --format stylish --project tsconfig.json ./{src,__tests__}/**/*.{ts,tsx}",
-    "prettier": "prettier --write ./**/{src,__tests__}/**/*.{ts,tsx}",
+    "prettier": "prettier --write ./**/{src,__tests__}/**/*.{ts,tsx,js,tsx}",
     "lint": "eslint 'front/src/**/*.ts[x]'",
     "test": "jest --env=jsdom",
     "test:c": "jest --env=jsdom --coverage",

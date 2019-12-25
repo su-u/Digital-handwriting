@@ -22,13 +22,12 @@ module.exports = {
                 use:[
                     {loader: 'html-loader'}
                 ],
-            }
-        ]
+            },
+        ],
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json'],
-        plugins: [
-        ]
+        plugins: [],
     },
     plugins: [
         new HtmlWebpackPlugin({
