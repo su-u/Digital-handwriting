@@ -24,7 +24,12 @@ const Button = {
     },
 };
 
-const ButtonStyle = styled.div<{ color: string; hoverColor: string }>`
+interface ButtonProps {
+    color: string;
+    hoverColor: string;
+}
+
+const ButtonStyle = styled.div<{ props: ButtonProps }>`
     border: 2px solid ${props => props.color};
     border-radius: 8px;
     padding: 20px;
