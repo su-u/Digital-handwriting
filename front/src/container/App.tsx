@@ -1,10 +1,12 @@
 import React from 'react';
-import Button from '../components/Button';
+import { Link } from 'react-router-dom';
+import Button from '../components/Button'
 
 const App = () => {
     return (
         <>
             <Button.Red inlineText={'textaa'} />
+            <Link to={'/score'}>score</Link>
         </>
     );
 };

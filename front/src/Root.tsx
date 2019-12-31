@@ -2,18 +2,20 @@ import React from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
 import GlobalStyle from '@/components/GlobalStyle';
 import App from '@/container/App';
-import Score from '@/container/Score';
+import ScoreContainer from '@/container/Score';
 import HeaderComponent from '@/components/Header';
 
-export default () => (
+const Root = () => (
     <>
         <GlobalStyle />
         <HashRouter>
             <HeaderComponent />
             <Switch>
                 <Route exact path={'/'} component={App} />
-                <Route path={'/score'} componebt={Score} />
+                <Route path={'/score'} component={ScoreContainer} />
             </Switch>
         </HashRouter>
     </>
 );
+
+export default Root;
