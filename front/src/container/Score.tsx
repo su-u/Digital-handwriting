@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { QuestionType } from '@/type/QuestionType';
 
 interface Props {
-    img: string[];
+    question: QuestionType[];
 }
 
-const ScoreContainer: React.FC = () => {
+const ScoreContainer: React.FC = (props: Props) => {
+    const { question } = props;
     return (
         <Wrapper>
             <PageTitle>結果</PageTitle>
