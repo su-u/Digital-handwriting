@@ -31,18 +31,18 @@ interface ButtonProps {
 
 const ButtonStyle = styled.div<{ props: ButtonProps }>`
     border: 2px solid ${props => props.color};
-    border-radius: 8px;
     padding: 20px;
     text-align: center;
     line-height: 20px;
     color: white;
-    width: 120px;
+    width: 100px;
     height: 20px;
     cursor: pointer;
-    left: calc(50% - 120px / 2);
+    left: calc(50% - 100px / 2);
     top: calc(50% - 20px / 2);
     font-weight: bold;
     font-size: 27px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
     background-color: ${props => props.color};
     &:hover {
         background-color: ${props => props.hoverColor};

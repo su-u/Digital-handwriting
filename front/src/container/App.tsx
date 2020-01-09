@@ -6,7 +6,7 @@ const App = () => {
     return (
         <>
             <Button.Red inlineText={'textaa'} />
-            <Link to={'/score'}>score</Link>
+            <Link to={'/score'}>score</Link>a
         </>
     );
 };
