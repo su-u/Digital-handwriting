@@ -14,6 +14,7 @@ const Question:React.FC<Props> = (props: Props) => {
   const [lines, setLines] = React.useState([]);
   const [isDrawing, setIsDrawing] = React.useState(false);
   const stageRef = React.useRef(null);
+  const [img, setImg] = React.useState('');
 
   const handleMouseDown = () => {
     setIsDrawing(true);
@@ -40,6 +41,11 @@ const Question:React.FC<Props> = (props: Props) => {
 
   const handleMouseUp = () => {
     setIsDrawing(false);
+    // setImg(stageRef.current.toDataURL({
+    //   mimeType: "image/jpeg",
+    //   quality: 0,
+    //   pixelRatio: 2
+    // }));
   };
 
   return (
@@ -48,7 +54,7 @@ const Question:React.FC<Props> = (props: Props) => {
       <QuestionText>
         問題：
       </QuestionText>
-      <Link to={'/score'}>score</Link>
+      <Link to={'/score'}>{img}</Link>
       <Stage
         width={width}
         height={height}
@@ -58,9 +64,9 @@ const Question:React.FC<Props> = (props: Props) => {
         ref={stageRef}
       >
         <Layer>
-          <Text text={'aaa'} />
+          <Text text={img} />
           {lines.map((line, i) => (
-            <Line key={i} points={line} stroke="red" />
+            <Line key={i} points={line} stroke="black" />
           ))}
         </Layer>
       </Stage>
