@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Stage, Layer, Text, Line } from 'react-konva';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Button from '../components/Button';
+import { sendCloudVision } from '@/utility/CloudVisionApi';
 
 type Props = {} & RouteComponentProps<{ id: number }>;
 
@@ -56,18 +57,21 @@ const Question: React.FC<Props> = (props: Props) => {
   };
 
   const NextPage = () => {
-    // setImg(stageRef.current.toDataURL({
-    //   mimeType: "image/jpeg",
-    //   quality: 0,
-    //   pixelRatio: 2
-    // }));
+    const img = stageRef.current.toDataURL({
+      mimeType: 'image/png',
+      quality: 0,
+      pixelRatio: 2,
+    });
+    console.log(img);
+    sendCloudVision(img.slice(23)).then(r => console.log(r));
     setLines([]);
+    setImg(img);
   };
 
   return (
     <>
       <QuestionText>問題{id}：</QuestionText>
-      <Link to={'/score'}>{img}</Link>
+      <Link to={'/score'}>{}</Link>
       <Stage
         width={width}
         height={height}
@@ -77,7 +81,7 @@ const Question: React.FC<Props> = (props: Props) => {
         ref={stageRef}
       >
         <Layer>
-          <Text text={img} />
+          {/*<Text text={img} />*/}
           {lines.map((line, i) => (
             <Line key={i} points={line} stroke="black" />
           ))}
@@ -89,6 +93,7 @@ const Question: React.FC<Props> = (props: Props) => {
       <div onClick={Reset}>
         <Button.Green inlineText={'リセット'} />
       </div>
+      <img src={img} />
     </>
   );
 };

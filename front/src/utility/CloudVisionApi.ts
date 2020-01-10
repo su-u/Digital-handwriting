@@ -1,6 +1,6 @@
 import Environment from '@/utility/environments';
 
-const sendCloudVision = async (image: string) => {
+export const sendCloudVision = async (image: string) => {
   const body = JSON.stringify({
     requests: [
       {
@@ -24,4 +24,5 @@ const sendCloudVision = async (image: string) => {
     }
   );
   const resJson = await response.json();
+  return resJson;
 };
