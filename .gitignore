@@ -353,3 +353,4 @@ MigrationBackup/
 .ionide/
 
 .idea/
+front/src/utility/environments.ts

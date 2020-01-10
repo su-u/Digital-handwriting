@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Button = {
-  Red: ({inlineText, to = ''}: Props) => {
+  Red: ({ inlineText, to = '' }: Props) => {
     return (
       <ButtonWrapper>
         <Link to={`${to}`}>
@@ -30,7 +30,7 @@ const Button = {
   Green: (props: Props) => {
     const { inlineText } = props;
     return (
-      <ButtonStyle color={'green'} hoverColor={'green'}>
+      <ButtonStyle color={'green'} hoverColor={'#006200'}>
         {inlineText}
       </ButtonStyle>
     );
