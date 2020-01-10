@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Stage, Layer, Text, Line } from "react-konva";
+import { Stage, Layer, Text, Line } from 'react-konva';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import Button from '../components/Button'
-
+import Button from '../components/Button';
 
 type Props = {} & RouteComponentProps<{ id: number }>;
 
-const Question:React.FC<Props> = (props: Props) => {
+const Question: React.FC<Props> = (props: Props) => {
   const { id } = props.match.params;
   const width = window.innerWidth;
-  const height = window.innerHeight;
+  const height = window.innerHeight * 0.7;
   const [lines, setLines] = React.useState([]);
   const [isDrawing, setIsDrawing] = React.useState(false);
   const stageRef = React.useRef(null);
@@ -51,9 +50,7 @@ const Question:React.FC<Props> = (props: Props) => {
   return (
     <>
       <Button.Black inlineText={`${id}`} />
-      <QuestionText>
-        問題：
-      </QuestionText>
+      <QuestionText>問題：</QuestionText>
       <Link to={'/score'}>{img}</Link>
       <Stage
         width={width}
@@ -79,8 +76,5 @@ const QuestionText = styled.div`
   color: white;
   font-size: 36px;
 `;
-
-
-
 
 export default Question;
