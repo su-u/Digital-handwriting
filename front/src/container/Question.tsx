@@ -17,7 +17,7 @@ const Question: React.FC<Props> = (props: Props) => {
 
   const NextTo = (current: number): string => {
     const num = parseInt(current);
-    if(num < 3){
+    if (num < 3) {
       return `/question/${num + 1}`;
     } else {
       return '/score';
