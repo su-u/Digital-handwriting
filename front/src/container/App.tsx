@@ -5,8 +5,8 @@ import Button from '../components/Button';
 const App = () => {
   return (
     <>
-      <Button.Red inlineText={'textaa'} />
-      <Link to={'/score'}>score</Link>a
+      <Button.Red inlineText={'はじめる'} to={'/question/1'} />
+      <Link to={'/score'}>score</Link>
     </>
   );
 };

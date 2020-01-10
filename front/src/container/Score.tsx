@@ -10,7 +10,7 @@ const ScoreContainer: React.FC = (props: Props) => {
   const { question } = props;
   return (
     <Wrapper>
-      <PageTaitle>結果</PageTaitle>
+      <PageTitle>結果</PageTitle>
       <ScoreWrapper></ScoreWrapper>
     </Wrapper>
   );

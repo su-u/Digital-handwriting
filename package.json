@@ -79,6 +79,7 @@
     "build:d": "yarn run-p webpack:d",
     "build:p": "yarn run-p webpack:p",
     "docker:d": "cd docker; docker-compose -f dev.yml -f docker-compose.yml up --build",
+    "docker:d:w": "cd docker; docker-compose.exe -f dev.yml -f docker-compose.yml up --build",
     "docker:p": "cd docker; docker-compose -f pro.yml -f docker-compose.yml up --build && yarn run build:p",
     "docker:stop": "docker stop $(docker ps -a -q)",
     "watch": "webpack-dev-server --config webpack.dev.js --display-error-details --progress --watch --color --info-verbosity verbose",

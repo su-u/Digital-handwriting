@@ -12,8 +12,21 @@ const Question: React.FC<Props> = (props: Props) => {
   const height = window.innerHeight * 0.7;
   const [lines, setLines] = React.useState([]);
   const [isDrawing, setIsDrawing] = React.useState(false);
-  const stageRef = React.useRef(null);
+  const stageRef = React.useRef([]);
   const [img, setImg] = React.useState('');
+
+  const NextTo = (current: number): string => {
+    const num = parseInt(current);
+    if(num < 3){
+      return `/question/${num + 1}`;
+    } else {
+      return '/score';
+    }
+  };
+
+  const Reset = () => {
+    setLines([]);
+  };
 
   const handleMouseDown = () => {
     setIsDrawing(true);
@@ -40,17 +53,20 @@ const Question: React.FC<Props> = (props: Props) => {
 
   const handleMouseUp = () => {
     setIsDrawing(false);
+  };
+
+  const NextPage = () => {
     // setImg(stageRef.current.toDataURL({
     //   mimeType: "image/jpeg",
     //   quality: 0,
     //   pixelRatio: 2
     // }));
+    setLines([]);
   };
 
   return (
     <>
-      <Button.Black inlineText={`${id}`} />
-      <QuestionText>問題：</QuestionText>
+      <QuestionText>問題{id}：</QuestionText>
       <Link to={'/score'}>{img}</Link>
       <Stage
         width={width}
@@ -67,6 +83,12 @@ const Question: React.FC<Props> = (props: Props) => {
           ))}
         </Layer>
       </Stage>
+      <div onClick={NextPage}>
+        <Button.Red inlineText={'次へ'} to={NextTo(id)} />
+      </div>
+      <div onClick={Reset}>
+        <Button.Green inlineText={'リセット'} />
+      </div>
     </>
   );
 };
