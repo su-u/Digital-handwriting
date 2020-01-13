@@ -4,6 +4,8 @@ import { Stage, Layer, Text, Line } from 'react-konva';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Button from '../components/Button';
 import { sendCloudVision } from '@/utility/CloudVisionApi';
+import BackGround from '@/components/BackGround';
+
 
 type Props = {} & RouteComponentProps<{ id: number }>;
 
@@ -58,14 +60,13 @@ const Question: React.FC<Props> = (props: Props) => {
 
   const NextPage = () => {
     const img = stageRef.current.toDataURL({
-      mimeType: 'image/png',
-      quality: 0,
+      mimeType: 'image/jpeg',
+      quality: 1,
       pixelRatio: 2,
-    });
+    }).slice(23);
     console.log(img);
-    sendCloudVision(img.slice(23)).then(r => console.log(r));
+    sendCloudVision(img).then(r => console.log(r));
     setLines([]);
-    setImg(img);
   };
 
   return (
@@ -81,9 +82,10 @@ const Question: React.FC<Props> = (props: Props) => {
         ref={stageRef}
       >
         <Layer>
+          <BackGround width={width} height={height}/>
           {/*<Text text={img} />*/}
           {lines.map((line, i) => (
-            <Line key={i} points={line} stroke="black" />
+            <Line key={i} points={line} stroke="black" strokeWidth={5}/>
           ))}
         </Layer>
       </Stage>

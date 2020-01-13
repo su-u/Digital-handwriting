@@ -1,0 +1,15 @@
+POST https://vision.googleapis.com/v1/images:annotate?key=
+Content-Type: application/json
+
+{
+"requests": [
+{
+"features": [{ "type": "DOCUMENT_TEXT_DETECTION", "maxResults": 10 }],
+"image": {
+  "content": ""
+}
+}
+]
+}
+
+###
