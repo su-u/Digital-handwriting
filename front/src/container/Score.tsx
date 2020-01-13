@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { QuestionType } from '@/type/QuestionType';
+import {bindActionCreators, Dispatch} from 'redux';
+import * as QuestionActions from '@/actions/Question';
+import {connect} from "react-redux";
+
 
 interface Props {
-  question: QuestionType[];
+  questionData: QuestionType[];
+  question_actions: typeof QuestionActions;
 }
 
 const ScoreContainer: React.FC<Props> = (props: Props) => {
-  const { question } = props;
+  const { questionData } = props;
+  console.log({questionData});
   return (
     <Wrapper>
       <PageTitle>結果</PageTitle>
@@ -27,4 +33,19 @@ const PageTitle = styled.h1`
 
 const ScoreWrapper = styled.div``;
 
-export default ScoreContainer;
+const mapStateToProps = (state: any) => {
+  return {
+    questionData: state.app.get('questionData'),
+  };
+};
+
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+  return {
+    question_actions: bindActionCreators(QuestionActions, dispatch),
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ScoreContainer);
+

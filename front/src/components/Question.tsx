@@ -6,14 +6,17 @@ import Button from './Button';
 import { sendCloudVision } from '@/utility/CloudVisionApi';
 import BackGround from '@/components/BackGround';
 import { QuestionType } from '@/type/QuestionType';
+import * as QuestionActions from '@/actions/Question';
 
 type Props = {
   num: string;
-  question: QuestionType;
+  questionData: QuestionType[];
+  question_actions: typeof QuestionActions;
 };
 
 const Question: React.FC<Props> = (props: Props) => {
   const num = parseInt(props.num);
+  const { question_actions, questionData } = props;
   const width = window.innerWidth;
   const height = window.innerHeight * 0.7;
   const [lines, setLines] = React.useState([]);
@@ -69,6 +72,19 @@ const Question: React.FC<Props> = (props: Props) => {
     }).slice(22);
     console.log(img);
     sendCloudVision(img).then(r => {
+      console.log(num);
+      switch (num) {
+        case 0:
+          console.log('sq');
+          question_actions.Ans0(img, r.responses[0].fullTextAnnotation.text, questionData[0].ans);
+          break;
+        case 1:
+          question_actions.Ans1(img, r.responses[0].fullTextAnnotation.text, questionData[1].ans);
+          break;
+        case 2:
+          question_actions.Ans2(img, r.responses[0].fullTextAnnotation.text, questionData[2].ans);
+          break;
+      }
       console.log({r});
       console.log(r.responses[0].fullTextAnnotation.text);
     });

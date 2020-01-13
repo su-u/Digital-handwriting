@@ -3,7 +3,7 @@ import QuestionList from '@/utility/QuestionList';
 import { QuestionActions as type } from "../actions";
 import getRandomInt from '@/utility/Random';
 
-export const InitQeustion = () => {
+export const InitQuestion = () => {
   const q0: QuestionType = {
     img:'',
     ans: QuestionList[getRandomInt(QuestionList.length)],
@@ -29,10 +29,11 @@ export const InitQeustion = () => {
   return {
     type: type.INIT_STATE,
     questionData: questionData,
-  }
+  };
 };
 
 export const Ans0 = (img: string, result: string, ans: string) => {
+  console.log('ans0');
   const newQuestion = {
     img: img,
     asn: ans,
