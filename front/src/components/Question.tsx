@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Stage, Layer, Text, Line } from 'react-konva';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import Button from '../components/Button';
+import { Stage, Layer, Line } from 'react-konva';
+import { Link } from 'react-router-dom';
+import Button from './Button';
 import { sendCloudVision } from '@/utility/CloudVisionApi';
 import BackGround from '@/components/BackGround';
+import { QuestionType } from '@/type/QuestionType';
 
-
-type Props = {} & RouteComponentProps<{ id: number }>;
+type Props = {
+  num: string;
+  question: QuestionType;
+};
 
 const Question: React.FC<Props> = (props: Props) => {
-  const { id } = props.match.params;
+  const num = parseInt(props.num);
   const width = window.innerWidth;
   const height = window.innerHeight * 0.7;
   const [lines, setLines] = React.useState([]);
@@ -19,8 +22,8 @@ const Question: React.FC<Props> = (props: Props) => {
   const [img, setImg] = React.useState('');
 
   const NextTo = (current: number): string => {
-    const num = parseInt(current);
-    if (num < 3) {
+    const num = current;
+    if (num < 2) {
       return `/question/${num + 1}`;
     } else {
       return '/score';
@@ -60,18 +63,22 @@ const Question: React.FC<Props> = (props: Props) => {
 
   const NextPage = () => {
     const img = stageRef.current.toDataURL({
-      mimeType: 'image/jpeg',
+      mimeType: 'image/png',
       quality: 1,
       pixelRatio: 2,
-    }).slice(23);
+    }).slice(22);
     console.log(img);
-    sendCloudVision(img).then(r => console.log(r));
+    sendCloudVision(img).then(r => {
+      console.log({r});
+      console.log(r.responses[0].fullTextAnnotation.text);
+    });
     setLines([]);
+    setImg(`data:image/png;base64,${img}`);
   };
 
   return (
     <>
-      <QuestionText>問題{id}：</QuestionText>
+      <QuestionText>問題{num + 1}：</QuestionText>
       <Link to={'/score'}>{}</Link>
       <Stage
         width={width}
@@ -85,12 +92,12 @@ const Question: React.FC<Props> = (props: Props) => {
           <BackGround width={width} height={height}/>
           {/*<Text text={img} />*/}
           {lines.map((line, i) => (
-            <Line key={i} points={line} stroke="black" strokeWidth={5}/>
+            <Line key={i} points={line} stroke="black" strokeWidth={8}/>
           ))}
         </Layer>
       </Stage>
       <div onClick={NextPage}>
-        <Button.Red inlineText={'次へ'} to={NextTo(id)} />
+        <Button.Red inlineText={'次へ'} to={NextTo(num)} />
       </div>
       <div onClick={Reset}>
         <Button.Green inlineText={'リセット'} />

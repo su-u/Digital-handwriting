@@ -6,7 +6,7 @@ interface Props {
   question: QuestionType[];
 }
 
-const ScoreContainer: React.FC = (props: Props) => {
+const ScoreContainer: React.FC<Props> = (props: Props) => {
   const { question } = props;
   return (
     <Wrapper>
