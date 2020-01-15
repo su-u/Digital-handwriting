@@ -7,7 +7,7 @@ const HeaderComponent = () => {
     <>
       <Header>
         <Title>
-          <Link to={`/`}>デジタル</Link>
+          <Link to={`/`}>Digital Handwriting</Link>
         </Title>
       </Header>
     </>
@@ -25,8 +25,8 @@ const Header = styled.div`
 `;
 
 const Title = styled.div`
-  padding-left: 30px;
-  padding-top: 15px;
+  padding-left: 20px;
+  padding-top: 10px;
   font-size: 30px;
   > a {
     display: inline-flex;

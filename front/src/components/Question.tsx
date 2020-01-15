@@ -92,13 +92,13 @@ const Question: React.FC<Props> = (props: Props) => {
         console.log('no');
         switch (num) {
           case 0:
-            question_actions.Ans0(img, '1');
+            question_actions.Ans0(img, '');
             break;
           case 1:
-            question_actions.Ans1(img, '1');
+            question_actions.Ans1(img, '');
             break;
           case 2:
-            question_actions.Ans2(img, '1');
+            question_actions.Ans2(img, '');
             break;
         }
       }
@@ -135,7 +135,7 @@ const Question: React.FC<Props> = (props: Props) => {
       <div onClick={Reset}>
         <Button.Green inlineText={'リセット'} />
       </div>
-      <img src={img} />
+      {/*<img src={img} />*/}
     </>
   );
 };

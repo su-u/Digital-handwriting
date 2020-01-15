@@ -35,7 +35,7 @@ export const Ans0 = (img: string, result: string) => {
     img: img,
     asn: '',
     result: result,
-    score: 1,
+    score: 0,
   };
   return {
     type: type.QUESTION_0,
@@ -48,7 +48,7 @@ export const Ans1 = (img: string, result: string) => {
     img: img,
     asn: '',
     result: result,
-    score: 1,
+    score: 0,
   };
   return {
     type: type.QUESTION_1,
@@ -61,7 +61,7 @@ export const Ans2 = (img: string, result: string) => {
     img: img,
     asn: '',
     result: result,
-    score: 1,
+    score: 0,
   };
   return {
     type: type.QUESTION_2,

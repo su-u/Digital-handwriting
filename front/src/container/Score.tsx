@@ -5,6 +5,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { QuestionType } from '@/type/QuestionType';
 import * as QuestionActions from '@/actions/Question';
 import ScoreLine from '@/components/ScoreLine';
+import Button from '@/components/Button';
 
 interface Props {
   questionData: QuestionType[];
@@ -14,6 +15,7 @@ interface Props {
 const ScoreContainer: React.FC<Props> = (props: Props) => {
   const { questionData } = props;
   console.log({ questionData });
+  const sum = questionData[0].score + questionData[1].score + questionData[2].score;
   return (
     <Wrapper>
       <PageTitle>結果</PageTitle>
@@ -36,7 +38,9 @@ const ScoreContainer: React.FC<Props> = (props: Props) => {
           ans={questionData[2].ans}
           score={questionData[2].score}
         />
+        <SumScore>合計：{sum}</SumScore>
       </ScoreWrapper>
+      <Button.Red inlineText={'はじめに戻る'} to={'/'} />
     </Wrapper>
   );
 };
@@ -46,11 +50,19 @@ const Wrapper = styled.div`
 `;
 
 const PageTitle = styled.h1`
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center;
 `;
 
 const ScoreWrapper = styled.div``;
+
+const SumScore = styled.div`
+  margin: 15px;
+  margin-right: 15%;
+  text-align: right;
+  font-size: 30px;
+  font-weight: bold;
+`;
 
 const mapStateToProps = (state: any) => {
   return {
