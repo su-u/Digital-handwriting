@@ -7,6 +7,9 @@ const QuestionList: string[] = [
   'Webアプリケーション構築実験',
   '長押しで補強する',
   '光学文字認識',
+  '人を撃っていいのは、撃たれる覚悟のあるやつだけだ',
+  '問題が思いつかない',
+  'Calculator',
 ];
 
 export default QuestionList;
