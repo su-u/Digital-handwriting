@@ -5,17 +5,16 @@ import { QuestionType } from '@/type/QuestionType';
 const init_state = Map({ questionData: [] });
 
 export default function(state: any = init_state, action: any) {
-  console.log(state);
   switch (action.type) {
     case QuestionActions.INIT_STATE:
       return state.set('questionData', action.questionData);
     case QuestionActions.QUESTION_0:
       const newData1: QuestionType[] = [
         {
-          img: action.questionData.img,
+          img: action.questionData0.img,
           ans: state.get('questionData')[0].ans,
-          result: action.questionData.result,
-          score: action.questionData.score,
+          result: action.questionData0.result,
+          score: action.questionData0.score,
         },
         state.get('questionData')[1],
         state.get('questionData')[2],
@@ -25,24 +24,23 @@ export default function(state: any = init_state, action: any) {
       const newData2: QuestionType[] = [
         state.get('questionData')[0],
         {
-          img: action.questionData.img,
+          img: action.questionData1.img,
           ans: state.get('questionData')[1].ans,
-          result: action.questionData.result,
-          score: action.questionData.score,
+          result: action.questionData1.result,
+          score: action.questionData1.score,
         },
         state.get('questionData')[2],
       ];
-      console.log(newData2);
       return state.set('questionData', newData2);
     case QuestionActions.QUESTION_2:
       const newData3: QuestionType[] = [
         state.get('questionData')[0],
         state.get('questionData')[1],
         {
-          img: action.questionData.img,
+          img: action.questionData2.img,
           ans: state.get('questionData')[2].ans,
-          result: action.questionData.result,
-          score: action.questionData.score,
+          result: action.questionData2.result,
+          score: action.questionData2.score,
         },
       ];
       return state.set('questionData', newData3);

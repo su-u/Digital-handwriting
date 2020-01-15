@@ -4,7 +4,7 @@ export const sendCloudVision = async (image: string) => {
   const body = JSON.stringify({
     requests: [
       {
-        features: [{ type: 'TEXT_DETECTION', maxResults: 10 }],
+        features: [{ type: 'DOCUMENT_TEXT_DETECTION', maxResults: 10 }],
         image: {
           content: image,
         },

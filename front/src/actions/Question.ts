@@ -31,7 +31,7 @@ export const InitQuestion = () => {
 };
 
 export const Ans0 = (img: string, result: string) => {
-  const newQuestion = {
+  const newQuestion0 = {
     img: img,
     asn: '',
     result: result,
@@ -39,12 +39,12 @@ export const Ans0 = (img: string, result: string) => {
   };
   return {
     type: type.QUESTION_0,
-    questionData: newQuestion,
+    questionData0: newQuestion0,
   };
 };
 
 export const Ans1 = (img: string, result: string) => {
-  const newQuestion = {
+  const newQuestion1 = {
     img: img,
     asn: '',
     result: result,
@@ -52,12 +52,12 @@ export const Ans1 = (img: string, result: string) => {
   };
   return {
     type: type.QUESTION_1,
-    questionData: newQuestion,
+    questionData1: newQuestion1,
   };
 };
 
 export const Ans2 = (img: string, result: string) => {
-  const newQuestion = {
+  const newQuestion2 = {
     img: img,
     asn: '',
     result: result,
@@ -65,6 +65,6 @@ export const Ans2 = (img: string, result: string) => {
   };
   return {
     type: type.QUESTION_2,
-    questionData: newQuestion,
+    questionData2: newQuestion2,
   };
 };

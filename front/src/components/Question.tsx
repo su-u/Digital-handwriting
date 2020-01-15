@@ -65,48 +65,48 @@ const Question: React.FC<Props> = (props: Props) => {
   };
 
   const NextPage = () => {
-    const img = stageRef.current
+    const img: string = stageRef.current
       .toDataURL({
-        mimeType: 'image/png',
+        mimeType: 'image/jpeg',
         quality: 1,
-        pixelRatio: 2,
       })
-      .slice(22);
-    console.log(img);
+      .slice(23);
     sendCloudVision(img).then(r => {
       if (
         r.responses &&
-        r.responses.fullTextAnnotation != undefined &&
+        r.responses[0].fullTextAnnotation != undefined &&
         r.responses[0].fullTextAnnotation.text != undefined
       ) {
+        console.log('ok');
         switch (num) {
           case 0:
-            question_actions.Ans0(img, img);
+            question_actions.Ans0(img, r.responses[0].fullTextAnnotation.text);
             break;
           case 1:
-            question_actions.Ans1(img, img);
+            question_actions.Ans1(img, r.responses[0].fullTextAnnotation.text);
             break;
           case 2:
-            question_actions.Ans2(img, img);
+            question_actions.Ans2(img, r.responses[0].fullTextAnnotation.text);
             break;
         }
         console.log(r.responses[0].fullTextAnnotation.text);
       } else {
+        console.log('no');
         switch (num) {
           case 0:
-            question_actions.Ans0(img, '');
+            question_actions.Ans0(img, '1');
             break;
           case 1:
-            question_actions.Ans1(img, '');
+            question_actions.Ans1(img, '1');
             break;
           case 2:
-            question_actions.Ans2(img, '');
+            question_actions.Ans2(img, '1');
             break;
         }
       }
     });
     setLines([]);
-    setImg(`data:image/png;base64,${img}`);
+    setImg(`data:image/jpeg;base64,${img}`);
   };
 
   return (
