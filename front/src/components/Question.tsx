@@ -78,13 +78,13 @@ const Question: React.FC<Props> = (props: Props) => {
         console.log('ok');
         switch (num) {
           case 0:
-            question_actions.Ans0(img, r.responses[0].fullTextAnnotation.text);
+            question_actions.Ans0(img, r.responses[0].fullTextAnnotation.text, questionData[0].ans);
             break;
           case 1:
-            question_actions.Ans1(img, r.responses[0].fullTextAnnotation.text);
+            question_actions.Ans1(img, r.responses[0].fullTextAnnotation.text, questionData[1].ans);
             break;
           case 2:
-            question_actions.Ans2(img, r.responses[0].fullTextAnnotation.text);
+            question_actions.Ans2(img, r.responses[0].fullTextAnnotation.text, questionData[2].ans);
             break;
         }
         console.log(r.responses[0].fullTextAnnotation.text);
@@ -92,13 +92,13 @@ const Question: React.FC<Props> = (props: Props) => {
         console.log('no');
         switch (num) {
           case 0:
-            question_actions.Ans0(img, '');
+            question_actions.Ans0(img, '', questionData[0].ans);
             break;
           case 1:
-            question_actions.Ans1(img, '');
+            question_actions.Ans1(img, '', questionData[1].ans);
             break;
           case 2:
-            question_actions.Ans2(img, '');
+            question_actions.Ans2(img, '', questionData[2].ans);
             break;
         }
       }

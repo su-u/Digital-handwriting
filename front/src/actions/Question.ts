@@ -2,6 +2,7 @@ import { QuestionType } from '@/type/QuestionType';
 import QuestionList from '@/utility/QuestionList';
 import { QuestionActions as type } from '../actions';
 import getRandomInt from '@/utility/Random';
+import levenshteinDistance from '@/utility/levenshteinDistance';
 
 export const InitQuestion = () => {
   const q0: QuestionType = {
@@ -30,12 +31,12 @@ export const InitQuestion = () => {
   };
 };
 
-export const Ans0 = (img: string, result: string) => {
+export const Ans0 = (img: string, result: string, ans: string) => {
   const newQuestion0 = {
     img: img,
     asn: '',
     result: result,
-    score: 0,
+    score: levenshteinDistance(ans, result),
   };
   return {
     type: type.QUESTION_0,
@@ -43,12 +44,12 @@ export const Ans0 = (img: string, result: string) => {
   };
 };
 
-export const Ans1 = (img: string, result: string) => {
+export const Ans1 = (img: string, result: string, ans: string) => {
   const newQuestion1 = {
     img: img,
     asn: '',
     result: result,
-    score: 0,
+    score: levenshteinDistance(ans, result),
   };
   return {
     type: type.QUESTION_1,
@@ -56,12 +57,12 @@ export const Ans1 = (img: string, result: string) => {
   };
 };
 
-export const Ans2 = (img: string, result: string) => {
+export const Ans2 = (img: string, result: string, ans: string) => {
   const newQuestion2 = {
     img: img,
     asn: '',
     result: result,
-    score: 0,
+    score: levenshteinDistance(ans, result),
   };
   return {
     type: type.QUESTION_2,

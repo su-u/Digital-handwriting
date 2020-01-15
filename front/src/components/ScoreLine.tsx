@@ -15,11 +15,9 @@ const ScoreLine: React.FC<Props> = (props: Props) => {
       <img src={img} />
       <MainBlock>
         <p>あなたの解答：{result}</p>
-        <p>　　　　 答え：{ans}</p>
+        <p>　　　　答え：{ans}</p>
+        <p>　　　スコア：{score}</p>
       </MainBlock>
-      <Block>
-        <p>スコア：{score}</p>
-      </Block>
     </Wrapper>
   );
 };
@@ -38,13 +36,8 @@ const Wrapper = styled.div`
 
 const MainBlock = styled.div`
   display: inline-block;
-  width: 50%;
+  width: 60%;
   padding-left: 10px;
-`;
-
-const Block = styled.div`
-  display: inline-block;
-  width: 10%;
 `;
 
 export default ScoreLine;
