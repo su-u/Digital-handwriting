@@ -65,11 +65,10 @@ const Question: React.FC<Props> = (props: Props) => {
   };
 
   const NextPage = () => {
-    const img: string = stageRef.current
-      .toDataURL({
-        mimeType: 'image/jpeg',
-        quality: 1,
-      });
+    const img: string = stageRef.current.toDataURL({
+      mimeType: 'image/jpeg',
+      quality: 1,
+    });
     sendCloudVision(img.slice(23)).then(r => {
       if (
         r.responses &&
@@ -110,7 +109,9 @@ const Question: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <QuestionText>問題{num + 1}：</QuestionText>
+      <QuestionText>
+        問題{num + 1}：{questionData[num].ans}
+      </QuestionText>
       <Link to={'/score'}>{}</Link>
       <Stage
         width={width}

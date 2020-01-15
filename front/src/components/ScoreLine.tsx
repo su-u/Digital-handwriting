@@ -12,10 +12,14 @@ const ScoreLine: React.FC<Props> = (props: Props) => {
   const { img, result, ans, score } = props;
   return (
     <Wrapper>
-      <img src={img} />
-      <p>解答：{result}</p>
-      <p>答え：{ans}</p>
-      <p>{score}</p>
+        <img src={img} />
+      <MainBlock>
+        <p>あなたの解答：{result}</p>
+        <p>答え：{ans}</p>
+      </MainBlock>
+      <Block>
+        <p>{score}</p>
+      </Block>
     </Wrapper>
   );
 };
@@ -27,5 +31,17 @@ const Wrapper = styled.div`
     width: 30%;
   }
 `;
+
+const MainBlock = styled.div`
+  display: inline-block;
+  width: 50%;
+`;
+
+const Block = styled.div`
+  display: inline-block;
+  width: 20%;
+`;
+
+
 
 export default ScoreLine;
