@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { QuestionType } from '@/type/QuestionType';
-import {bindActionCreators, Dispatch} from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import * as QuestionActions from '@/actions/Question';
-import {connect} from "react-redux";
-
+import { connect } from 'react-redux';
 
 interface Props {
   questionData: QuestionType[];
@@ -13,11 +12,21 @@ interface Props {
 
 const ScoreContainer: React.FC<Props> = (props: Props) => {
   const { questionData } = props;
-  console.log({questionData});
+  console.log({ questionData });
   return (
     <Wrapper>
       <PageTitle>結果</PageTitle>
-      <ScoreWrapper></ScoreWrapper>
+      <ScoreWrapper>
+        <p>
+          {questionData[0].ans}:{questionData[0].result}:{questionData[0].score}
+        </p>
+        <p>
+          {questionData[1].ans}:{questionData[1].result}:{questionData[1].score}
+        </p>
+        <p>
+          {questionData[2].ans}:{questionData[2].result}:{questionData[2].score}
+        </p>
+      </ScoreWrapper>
     </Wrapper>
   );
 };
@@ -44,8 +53,5 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     question_actions: bindActionCreators(QuestionActions, dispatch),
   };
 }
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ScoreContainer);
-
+// @ts-ignore
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreContainer);

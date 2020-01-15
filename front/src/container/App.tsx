@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import {bindActionCreators, Dispatch} from "redux";
+import { bindActionCreators, Dispatch } from 'redux';
 import * as QuestionActions from '@/actions/Question';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-interface Props{
+interface Props {
   question_actions: typeof QuestionActions;
 }
 
-const App = (props:Props) => {
+const App = (props: Props) => {
   const { question_actions } = props;
   question_actions.InitQuestion();
   return (
@@ -26,7 +26,4 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(App);
+export default connect(null, mapDispatchToProps)(App);

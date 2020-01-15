@@ -65,28 +65,45 @@ const Question: React.FC<Props> = (props: Props) => {
   };
 
   const NextPage = () => {
-    const img = stageRef.current.toDataURL({
-      mimeType: 'image/png',
-      quality: 1,
-      pixelRatio: 2,
-    }).slice(22);
+    const img = stageRef.current
+      .toDataURL({
+        mimeType: 'image/png',
+        quality: 1,
+        pixelRatio: 2,
+      })
+      .slice(22);
     console.log(img);
     sendCloudVision(img).then(r => {
-      console.log(num);
-      switch (num) {
-        case 0:
-          console.log('sq');
-          question_actions.Ans0(img, r.responses[0].fullTextAnnotation.text, questionData[0].ans);
-          break;
-        case 1:
-          question_actions.Ans1(img, r.responses[0].fullTextAnnotation.text, questionData[1].ans);
-          break;
-        case 2:
-          question_actions.Ans2(img, r.responses[0].fullTextAnnotation.text, questionData[2].ans);
-          break;
+      if (
+        r.responses &&
+        r.responses.fullTextAnnotation != undefined &&
+        r.responses[0].fullTextAnnotation.text != undefined
+      ) {
+        switch (num) {
+          case 0:
+            question_actions.Ans0(img, img);
+            break;
+          case 1:
+            question_actions.Ans1(img, img);
+            break;
+          case 2:
+            question_actions.Ans2(img, img);
+            break;
+        }
+        console.log(r.responses[0].fullTextAnnotation.text);
+      } else {
+        switch (num) {
+          case 0:
+            question_actions.Ans0(img, '');
+            break;
+          case 1:
+            question_actions.Ans1(img, '');
+            break;
+          case 2:
+            question_actions.Ans2(img, '');
+            break;
+        }
       }
-      console.log({r});
-      console.log(r.responses[0].fullTextAnnotation.text);
     });
     setLines([]);
     setImg(`data:image/png;base64,${img}`);
@@ -105,10 +122,10 @@ const Question: React.FC<Props> = (props: Props) => {
         ref={stageRef}
       >
         <Layer>
-          <BackGround width={width} height={height}/>
+          <BackGround width={width} height={height} />
           {/*<Text text={img} />*/}
           {lines.map((line, i) => (
-            <Line key={i} points={line} stroke="black" strokeWidth={8}/>
+            <Line key={i} points={line} stroke="black" strokeWidth={8} />
           ))}
         </Layer>
       </Stage>

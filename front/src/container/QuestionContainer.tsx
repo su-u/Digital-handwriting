@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { bindActionCreators, Dispatch } from "redux";
+import { bindActionCreators, Dispatch } from 'redux';
 import Question from '@/components/Question';
 import { QuestionType } from '@/type/QuestionType';
 import * as QuestionActions from '@/actions/Question';
@@ -34,7 +34,5 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     question_actions: bindActionCreators(QuestionActions, dispatch),
   };
 }
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(QuestioContainer);
+// @ts-ignore
+export default connect(mapStateToProps, mapDispatchToProps)(QuestioContainer);
