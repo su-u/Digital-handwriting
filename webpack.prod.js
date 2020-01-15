@@ -21,18 +21,18 @@ module.exports = merge(common, {
                     },
                 },
             },
-            {
-                test: /\.tsx$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            plugins: [['react-remove-properties', { properties: ['data-test'] }]],
-                        },
-                    },
-                ],
-                exclude: /node_modules/,
-            },
+            // {
+            //     test: /\.tsx$/,
+            //     use: [
+            //         {
+            //             loader: 'babel-loader',
+            //             options: {
+            //                 plugins: [['react-remove-properties', { properties: ['data-test'] }]],
+            //             },
+            //         },
+            //     ],
+            //     exclude: /node_modules/,
+            // },
         ],
     },
     resolve: {
