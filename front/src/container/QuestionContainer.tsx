@@ -11,7 +11,7 @@ type Props = {
   question_actions: typeof QuestionActions;
 } & RouteComponentProps<{ id: string }>;
 
-export class QuestioContainer extends React.Component<Props> {
+export class QuestionContainer extends React.Component<Props> {
   render() {
     const { id } = this.props.match.params;
     const { questionData, question_actions } = this.props;
@@ -35,4 +35,4 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(QuestioContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionContainer);
