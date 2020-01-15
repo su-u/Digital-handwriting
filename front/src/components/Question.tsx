@@ -69,9 +69,8 @@ const Question: React.FC<Props> = (props: Props) => {
       .toDataURL({
         mimeType: 'image/jpeg',
         quality: 1,
-      })
-      .slice(23);
-    sendCloudVision(img).then(r => {
+      });
+    sendCloudVision(img.slice(23)).then(r => {
       if (
         r.responses &&
         r.responses[0].fullTextAnnotation != undefined &&
@@ -106,7 +105,7 @@ const Question: React.FC<Props> = (props: Props) => {
       }
     });
     setLines([]);
-    setImg(`data:image/jpeg;base64,${img}`);
+    setImg(`${img}`);
   };
 
   return (

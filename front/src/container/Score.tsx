@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { QuestionType } from '@/type/QuestionType';
-import { bindActionCreators, Dispatch } from 'redux';
-import * as QuestionActions from '@/actions/Question';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import { QuestionType } from '@/type/QuestionType';
+import * as QuestionActions from '@/actions/Question';
+import ScoreLine from '@/components/ScoreLine';
 
 interface Props {
   questionData: QuestionType[];
@@ -17,15 +18,24 @@ const ScoreContainer: React.FC<Props> = (props: Props) => {
     <Wrapper>
       <PageTitle>結果</PageTitle>
       <ScoreWrapper>
-        <p>
-          {questionData[0].ans}:{questionData[0].result}:{questionData[0].score}
-        </p>
-        <p>
-          {questionData[1].ans}:{questionData[1].result}:{questionData[1].score}
-        </p>
-        <p>
-          {questionData[2].ans}:{questionData[2].result}:{questionData[2].score}
-        </p>
+        <ScoreLine
+          img={questionData[0].img}
+          result={questionData[0].result}
+          ans={questionData[0].ans}
+          score={questionData[0].score}
+        />
+        <ScoreLine
+          img={questionData[1].img}
+          result={questionData[1].result}
+          ans={questionData[1].ans}
+          score={questionData[1].score}
+        />
+        <ScoreLine
+          img={questionData[2].img}
+          result={questionData[2].result}
+          ans={questionData[2].ans}
+          score={questionData[2].score}
+        />
       </ScoreWrapper>
     </Wrapper>
   );
