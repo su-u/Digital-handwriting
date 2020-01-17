@@ -354,3 +354,4 @@ MigrationBackup/
 
 .idea/
 front/src/utility/environments.ts
+dist/

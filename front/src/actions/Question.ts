@@ -2,7 +2,7 @@ import { QuestionType } from '@/type/QuestionType';
 import QuestionList from '@/utility/QuestionList';
 import { QuestionActions as type } from '../actions';
 import getRandomInt from '@/utility/Random';
-import levenshteinDistance from '@/utility/levenshteinDistance';
+import levenshteinDistance from '@/utility/LevenshteinDistance';
 
 export const InitQuestion = () => {
   const q0: QuestionType = {

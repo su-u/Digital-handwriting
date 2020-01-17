@@ -10,6 +10,10 @@ const QuestionList: string[] = [
   '人を撃っていいのは、撃たれる覚悟のあるやつだけだ',
   '問題が思いつかない',
   'Calculator',
+  'お金が欲しい',
+  'インフルエンザウイルスに注意',
 ];
+
+// const QuestionList: string[] = ['test'];
 
 export default QuestionList;

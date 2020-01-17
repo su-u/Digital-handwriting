@@ -1,4 +1,4 @@
-const levenshteinDistance = (str1: string = '', str2: string) => {
+const levenshteinDistance = (str1: string = '', str2: string = '') => {
   let x = str1.length;
   let y = str2.length;
 
@@ -19,7 +19,7 @@ const levenshteinDistance = (str1: string = '', str2: string) => {
       d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
     }
   }
-  return 1 - d[x][y] / str1.length;
+  return Math.floor((1 - d[x][y] / str1.length) * 100);
 };
 
 export default levenshteinDistance;
